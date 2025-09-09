@@ -1,0 +1,5 @@
+flask
+requests
+langchain
+langchain-google-genai
+google-genai

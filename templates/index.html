@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+<title>Napa-Valley || Wine Shop</title>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center p-4">
+
+  <!-- Heading -->
+  <h1 class="text-3xl md:text-4xl font-bold mb-8 text-center">
+    Welcome to <span class="uppercase text-yellow-400">BEST WINE SHOP</span> of NAPA Valley
+  </h1>
+
+  <!-- File Upload Section -->
+  <div class="bg-gray-800 shadow-md rounded p-6 w-full max-w-xl mb-6">
+    <h2 class="text-xl font-semibold mb-2">Please upload your <span class="uppercase text-yellow-300">CATALOGUE</span></h2>
+    <input type="file" class="border border-gray-600 rounded px-2 py-1 w-full bg-gray-700 text-gray-100">
+        <h2 class="text-xl font-semibold mb-2">Chat with the wine assistant</h2>
+    <div id="chat-output" class="h-64 overflow-y-auto border border-gray-600 rounded p-2 bg-gray-700 mb-2"></div>
+    <form id="chat-form" class="flex">
+      <input type="text" id="user-input" placeholder="Ask about wines..." 
+             class="flex-1 border border-gray-600 rounded-l px-2 py-1 bg-gray-700 text-gray-100">
+      <button type="submit" class="bg-purple-600 text-white px-4 py-1 rounded-r hover:bg-purple-700">Send</button>
+    </form>
+  </div>
+
+  <!-- Online Wine Search Section -->
+  <div class="bg-gray-800 shadow-md rounded p-6 w-full max-w-xl mb-6">
+    <h2 class="text-xl font-semibold mb-2">Search for wine details online</h2>
+    <input type="text" placeholder="Enter wine name..." class="border border-gray-600 rounded px-2 py-1 w-full bg-gray-700 text-gray-100 mb-2">
+    <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">Search</button>
+  </div>
+
+  <!-- Weather / Event Section -->
+  <div class="bg-gray-800 shadow-md rounded p-6 w-full max-w-xl mb-6">
+    <h2 class="text-xl font-semibold mb-2">Want to visit the store, host an event, or buy online?</h2>
+    <p class="mb-2">Check <span class="font-bold text-lg md:text-xl text-yellow-400 uppercase">WEATHER</span> for a secure delivery or visiting the store!</p>
+    <input type="text" placeholder="Enter your city..." class="border border-gray-600 rounded px-2 py-1 w-full bg-gray-700 text-gray-100 mb-2">
+    <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">Check Weather</button>
+  </div>
+
+
+
+  <!-- JS for chat (dummy for now) -->
+  <script>
+    const form = document.getElementById('chat-form');
+    const userInput = document.getElementById('user-input');
+    const chatOutput = document.getElementById('chat-output');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const message = userInput.value;
+      if (!message) return;
+      chatOutput.innerHTML += `<div class="text-right text-blue-400 mb-2">You: ${message}</div>`;
+      chatOutput.innerHTML += `<div class="text-left text-gray-200 mb-2">Bot: Response goes here...</div>`;
+      userInput.value = '';
+      chatOutput.scrollTop = chatOutput.scrollHeight;
+    });
+  </script>
+
+</body>
+</html>
