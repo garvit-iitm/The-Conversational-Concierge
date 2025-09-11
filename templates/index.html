@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="{{ url_for('static', filename='css/output.css') }}" rel="stylesheet">
+    
 <title>Napa-Valley || Wine Shop</title>
 </head>
 <body class="bg-gray-900 text-gray-100 min-h-screen flex flex-col items-center p-4">
@@ -16,7 +17,8 @@
   <!-- File Upload Section -->
   <div class="bg-gray-800 shadow-md rounded p-6 w-full max-w-xl mb-6">
     <h2 class="text-xl font-semibold mb-2">Please upload your <span class="uppercase text-yellow-300">CATALOGUE</span></h2>
-    <input type="file" class="border border-gray-600 rounded px-2 py-1 w-full bg-gray-700 text-gray-100">
+    <input type="file" id="file-input" class="border border-gray-600 rounded px-2 py-1 w-full bg-gray-700 text-gray-100">
+    <button id="upload-button" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 mt-2 w-full">Upload</button>
         <h2 class="text-xl font-semibold mb-2">Chat with the wine assistant</h2>
     <div id="chat-output" class="h-64 overflow-y-auto border border-gray-600 rounded p-2 bg-gray-700 mb-2"></div>
     <form id="chat-form" class="flex">
@@ -40,25 +42,7 @@
     <input type="text" placeholder="Enter your city..." class="border border-gray-600 rounded px-2 py-1 w-full bg-gray-700 text-gray-100 mb-2">
     <button class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 w-full">Check Weather</button>
   </div>
-
-
-
-  <!-- JS for chat (dummy for now) -->
-  <script>
-    const form = document.getElementById('chat-form');
-    const userInput = document.getElementById('user-input');
-    const chatOutput = document.getElementById('chat-output');
-
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const message = userInput.value;
-      if (!message) return;
-      chatOutput.innerHTML += `<div class="text-right text-blue-400 mb-2">You: ${message}</div>`;
-      chatOutput.innerHTML += `<div class="text-left text-gray-200 mb-2">Bot: Response goes here...</div>`;
-      userInput.value = '';
-      chatOutput.scrollTop = chatOutput.scrollHeight;
-    });
-  </script>
-
 </body>
+
+<script src="/static/script/script.js"></script>
 </html>
